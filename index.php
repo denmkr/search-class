@@ -10,7 +10,7 @@ class Article {
     public $keywords;
 }
 
-class AbstractText {
+class ChildStructure {
 	public $original;
 	public $porter;
 	public $mystem;
@@ -79,9 +79,29 @@ foreach ($elements as $element) {
 
 	$pageDoc = new DOMDocument();
 	$pageDoc->loadHTMLFile($root->articles[$index]->link);
-	$root->articles[$index]->title = getTitleByLink($pageDoc);
-	$root->articles[$index]->abstract = new AbstractText();
+	$root->articles[$index]->title = new ChildStructure();
+	$root->articles[$index]->title->original = getTitleByLink($pageDoc);
+	$root->articles[$index]->abstract = new ChildStructure();
 	$root->articles[$index]->abstract->original = getAbstractByLink($pageDoc);
+
+	/* Title stemmer */
+
+	/* USING YANDEX MYSTEM */
+	$mystemText = mystem($root->articles[$index]->title->original);
+	$mystemText = str_replace("}{", " ", $mystemText);
+	$mystemText = str_replace("{", "", $mystemText);
+	$mystemText = str_replace("}", "", $mystemText);
+	$root->articles[$index]->title->mystem = $mystemText;
+
+	/* USING PORTER STEMMER */
+	$stemmer = new \NXP\Stemmer();
+	$stemmed = [];
+	foreach (explode(' ', $root->articles[$index]->title->original) as $word) {
+	    $stemmed[] = $stemmer->getWordBase($word);
+	}
+	$porterResult = implode(' ', $stemmed);
+	$root->articles[$index]->title->porter = $porterResult;
+
 
 	$textForStemmer = preg_replace('/\$[^$]*\$/', '', $root->articles[$index]->abstract->original); // Remove text between $ because of stemmer error
 
@@ -112,6 +132,6 @@ foreach ($elements as $element) {
 $json = json_encode($root, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 echo $json;
 
-file_put_contents('/Users/denis/Desktop/search-class/myfile.json', $json);
+file_put_contents('/Users/denis/Documents/Search Class/myfile.json', $json);
 
 ?>
