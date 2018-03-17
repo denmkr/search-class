@@ -195,6 +195,10 @@ foreach ($strings as $key => $string) {
 	$strings[$key] = str_replace('(', '', $strings[$key]);
 	$strings[$key] = str_replace(')', '', $strings[$key]);
 	$strings[$key] = str_replace(' ', ' ', $strings[$key]);
+	$strings[$key] = str_replace('ё', 'е', $strings[$key]);
+	$strings[$key] = str_replace(' ', ' ', $strings[$key]);
+	$strings[$key] = str_replace('!', '', $strings[$key]);
+	$strings[$key] = str_replace('?', '', $strings[$key]);
 
 	$commonString = $commonString . $strings[$key] . " ";
 }
@@ -252,6 +256,10 @@ foreach ($strings as $key => $string) {
 	$strings[$key] = str_replace('(', '', $strings[$key]);
 	$strings[$key] = str_replace(')', '', $strings[$key]);
 	$strings[$key] = str_replace(' ', ' ', $strings[$key]);
+	$strings[$key] = str_replace('ё', 'е', $strings[$key]);
+	$strings[$key] = str_replace(' ', ' ', $strings[$key]);
+	$strings[$key] = str_replace('!', '', $strings[$key]);
+	$strings[$key] = str_replace('?', '', $strings[$key]);
 
 	$commonString = $commonString . $strings[$key] . " ";
 }
@@ -311,6 +319,10 @@ foreach ($strings as $key => $string) {
 	$strings[$key] = str_replace('(', '', $strings[$key]);
 	$strings[$key] = str_replace(')', '', $strings[$key]);
 	$strings[$key] = str_replace(' ', ' ', $strings[$key]);
+	$strings[$key] = str_replace('ё', 'е', $strings[$key]);
+	$strings[$key] = str_replace(' ', ' ', $strings[$key]);
+	$strings[$key] = str_replace('!', '', $strings[$key]);
+	$strings[$key] = str_replace('?', '', $strings[$key]);
 
 	$commonString = $commonString . $strings[$key] . " ";
 }
@@ -368,6 +380,10 @@ foreach ($strings as $key => $string) {
 	$strings[$key] = str_replace('(', '', $strings[$key]);
 	$strings[$key] = str_replace(')', '', $strings[$key]);
 	$strings[$key] = str_replace(' ', ' ', $strings[$key]);
+	$strings[$key] = str_replace('ё', 'е', $strings[$key]);
+	$strings[$key] = str_replace(' ', ' ', $strings[$key]);
+	$strings[$key] = str_replace('!', '', $strings[$key]);
+	$strings[$key] = str_replace('?', '', $strings[$key]);
 
 	$commonString = $commonString . $strings[$key] . " ";
 }
