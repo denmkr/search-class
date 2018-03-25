@@ -112,6 +112,7 @@ for ($i=1;$i<count($minusDocuments);$i++) {
 $resultArray = array_diff($intersectArray, $minusIntersectArray);
 
 /* Printing documents numbers */
+echo "Boolean calculating documents:\n";
 foreach ($resultArray as $documentNumber) {
 	echo $documentNumber . "\n";
 }
